@@ -20,9 +20,13 @@
 Upload all of the helper files to HDFS in the /tmp directory 
 
 a. CFS_2012_table_CFSArea.csv
+
 b. CFS_2012_table_ModeofTrans.csv
+
 c. CFS_2012_table_NAICS.csv
+
 d. CFS_2012_table_SCTG.csv
+
 e. CFS_2012_table_StateCodes.csv
 
 
