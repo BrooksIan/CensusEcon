@@ -18,11 +18,12 @@
 
 2. Upload helper files to the HDFS in the /tmp directory 
 Upload all of the helper files to HDFS in the /tmp directory 
-CFS_2012_table_CFSArea.csv
-CFS_2012_table_ModeofTrans.csv
-CFS_2012_table_NAICS.csv
-CFS_2012_table_SCTG.csv
-CFS_2012_table_StateCodes.csv
+
+a. CFS_2012_table_CFSArea.csv
+b. CFS_2012_table_ModeofTrans.csv
+c. CFS_2012_table_NAICS.csv
+d. CFS_2012_table_SCTG.csv
+e. CFS_2012_table_StateCodes.csv
 
 
 3. Log into Apache Ambari 
