@@ -13,10 +13,13 @@
 
 ## Pre-Run Instructions
 
+1. Log into Apache Ambari 
 
-1. Upload the source data file  [CFS 2012 csv] (https://www.census.gov/econ/cfs/pums.html) to HDFS in the /tmp directory 
+2. In Ambari, select "Files View" and upload all of the CSV files to the /tmp/ directory.  For assistance, please use the following [tutorial.](https://fr.hortonworks.com/tutorial/loading-and-querying-data-with-hadoop/)
 
-2. Upload helper files to the HDFS in the /tmp directory 
+3. Upload the source data file  [CFS 2012 csv] (https://www.census.gov/econ/cfs/pums.html) to HDFS in the /tmp directory 
+
+4. Upload helper files to the HDFS in the /tmp directory 
 Upload all of the helper files to HDFS in the /tmp directory 
 
 a. CFS_2012_table_CFSArea.csv
@@ -29,10 +32,6 @@ d. CFS_2012_table_SCTG.csv
 
 e. CFS_2012_table_StateCodes.csv
 
-
-3. Log into Apache Ambari 
-
-4. In Ambari, select "Files View" and upload all of the CSV files to the /tmp/ directory.  For assistance, please use the following [tutorial.](https://fr.hortonworks.com/tutorial/loading-and-querying-data-with-hadoop/)
 
 5. In Zeppelin, download the Zeppelin Note [JSON file.](https://github.com/BrooksIan/CensusEcon) For assistance, please use the following [tutorial](https://hortonworks.com/tutorial/getting-started-with-apache-zeppelin/)
 
