@@ -1,0 +1,22 @@
+﻿ModeCode,Description
+2,Single mode
+3,Truck
+4,For-hire truck
+5,Private truck
+6,Rail
+7,Water
+8,Inland Water
+9,Great Lakes
+10,Deep Sea
+101,Multiple Waterways
+11,Air (incl truck & air)
+12,Pipeline
+19,Other mode
+13,Multiple mode
+14,"Parcel, USPS, or courier"
+20,Non-parcel multiple mode
+15,Truck and rail
+16,Truck and water
+17,Rail and water
+18,Other multiple mode
+00,Mode suppressed

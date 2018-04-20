@@ -1,0 +1,135 @@
+﻿MACode,StateCode,CFSArea,MAType,Description
+104,36,36-104,C,"Albany-Schenectady, NY  CFS Area "
+122,13,13-122,C,"Atlanta-Athens-Clarke County-Sandy Springs, GA  CFS Area "
+142,1,01-142,C,"Birmingham-Hoover-Talladega, AL  CFS Area "
+148,25,25-148,C,"Boston-Worcester-Providence, MA-RI-NH-CT  CFS Area (MA Part)"
+148,33,33-148,C,"Boston-Worcester-Providence, MA-RI-NH-CT  CFS Area (NH Part)"
+148,44,44-148,C,"Boston-Worcester-Providence, MA-RI-NH-CT  CFS Area (RI Part)"
+160,36,36-160,C,"Buffalo-Cheektowaga, NY  CFS Area "
+172,37,37-172,C,"Charlotte-Concord, NC-SC  CFS Area  (NC Part)"
+176,17,17-176,C,"Chicago-Naperville, IL-IN-WI  CFS Area (IL Part)"
+176,18,18-176,C,"Chicago-Naperville, IL-IN-WI  CFS Area (IN Part)"
+178,21,21-178,C,"Cincinnati-Wilmington-Maysville, OH-KY-IN  CFS Area (KY Part)"
+178,39,39-178,C,"Cincinnati-Wilmington-Maysville, OH-KY-IN  CFS Area (OH Part)"
+184,39,39-184,C,"Cleveland-Akron-Canton, OH  CFS Area "
+198,39,39-198,C,"Columbus-Marion-Zanesville, OH  CFS Area "
+204,48,48-204,C,"Corpus Christi-Kingsville-Alice, TX  CFS Area "
+206,48,48-206,C,"Dallas-Fort Worth, TX-OK  CFS Area (TX Part)"
+212,39,39-212,C,"Dayton-Springfield-Sidney, OH  CFS Area "
+216,8,08-216,C,"Denver-Aurora, CO  CFS Area "
+220,26,26-220,C,"Detroit-Warren-Ann Arbor, MI  CFS Area "
+238,48,48-238,C,"El Paso-Las Cruces, TX-NM  CFS Area (TX Part)"
+258,18,18-258,C,"Fort Wayne-Huntington-Auburn, IN  CFS Area "
+260,6,06-260,C,"Fresno-Madera, CA  CFS Area "
+266,26,26-266,C,"Grand Rapids-Wyoming-Muskegon, MI  CFS Area "
+268,37,37-268,C,"Greensboro--Winston-Salem--High Point, NC  CFS Area "
+273,45,45-273,C,"Greenville-Spartanburg-Anderson, SC  CFS Area "
+288,48,48-288,C,"Houston-The Woodlands, TX  CFS Area "
+294,18,18-294,C,"Indianapolis-Carmel-Muncie, IN  CFS Area "
+300,12,12-300,C,"Jacksonville-St. Marys-Palatka, FL-GA  CFS Area (FL Part)"
+312,20,20-312,C,"Kansas City-Overland Park-Kansas City, MO-KS  CFS Area (KS Part)"
+312,29,29-312,C,"Kansas City-Overland Park-Kansas City, MO-KS  CFS Area (MO Part)"
+314,47,47-314,C,"Knoxville-Morristown-Sevierville, TN  CFS Area "
+332,32,32-332,C,"Las Vegas-Henderson, NV-AZ  CFS Area (NV Part)"
+348,6,06-348,C,"Los Angeles-Long Beach, CA  CFS Area "
+350,21,21-350,C,"Louisville/Jefferson County-Elizabethtown-Madison, KY-IN  CFS Area (KY Part)"
+368,47,47-368,C,"Memphis, TN-MS-AR  CFS Area (TN Part)"
+370,12,12-370,C,"Miami-Fort Lauderdale-Port St. Lucie, FL  CFS Area "
+376,55,55-376,C,"Milwaukee-Racine-Waukesha, WI  CFS Area "
+378,27,27-378,C,"Minneapolis-St. Paul, MN-WI  CFS Area (MN Part)"
+380,1,01-380,C,"Mobile-Daphne-Fairhope, AL  CFS Area "
+400,47,47-400,C,"Nashville-Davidson--Murfreesboro, TN  CFS Area "
+406,22,22-406,C,"New Orleans-Metairie-Hammond, LA-MS  CFS Area (LA Part)"
+408,9,09-408,C,"New York-Newark, NY-NJ-CT-PA  CFS Area (CT Part)"
+408,34,34-408,C,"New York-Newark, NY-NJ-CT-PA  CFS Area (NJ Part)"
+408,36,36-408,C,"New York-Newark, NY-NJ-CT-PA  CFS Area (NY Part)"
+408,42,42-408,C,"New York-Newark, NY-NJ-CT-PA  CFS Area (PA Part)"
+416,40,40-416,C,"Oklahoma City-Shawnee, OK  CFS Area "
+420,31,31-420,C,"Omaha-Council Bluffs-Fremont, NE-IA  CFS Area (NE Part)"
+422,12,12-422,C,"Orlando-Deltona-Daytona Beach, FL  CFS Area "
+428,10,10-428,C,"Philadelphia-Reading-Camden, PA-NJ-DE-MD  CFS Area (DE Part)"
+428,34,34-428,C,"Philadelphia-Reading-Camden, PA-NJ-DE-MD  CFS Area (NJ Part)"
+428,42,42-428,C,"Philadelphia-Reading-Camden, PA-NJ-DE-MD  CFS Area (PA Part)"
+430,42,42-430,C,"Pittsburgh-New Castle-Weirton, PA-OH-WV  CFS Area (PA Part)"
+440,41,41-440,C,"Portland-Vancouver-Salem, OR-WA  CFS Area (OR Part)"
+440,53,53-440,C,"Portland-Vancouver-Salem, OR-WA  CFS Area (WA Part)"
+450,37,37-450,C,"Raleigh-Durham-Chapel Hill, NC  CFS Area "
+464,36,36-464,C,"Rochester-Batavia-Seneca Falls, NY  CFS Area "
+472,6,06-472,C,"Sacramento-Roseville, CA  CFS Area "
+476,17,17-476,C,"St. Louis-St. Charles-Farmington, MO-IL  CFS Area (IL Part)"
+476,29,29-476,C,"St. Louis-St. Charles-Farmington, MO-IL  CFS Area (MO Part)"
+482,49,49-482,C,"Salt Lake City-Provo-Orem, UT  CFS Area "
+488,6,06-488,C,"San Jose-San Francisco-Oakland, CA  CFS Area "
+496,13,13-496,C,"Savannah-Hinesville-Statesboro, GA  CFS Area "
+500,53,53-500,C,"Seattle-Tacoma, WA  CFS Area "
+536,4,04-536,C,"Tucson-Nogales, AZ  CFS Area "
+538,40,40-538,C,"Tulsa-Muskogee-Bartlesville, OK  CFS Area "
+545,51,51-545,C,"Virginia Beach-Norfolk, VA-NC  CFS Area (VA Part)"
+556,20,20-556,C,"Wichita-Arkansas City-Winfield, KS  CFS Area "
+12420,48,48-12420,M,"Austin-Round Rock, TX  CFS Area "
+12580,24,24-12580,M,"Baltimore-Columbia-Towson, MD  CFS Area "
+12940,22,22-12940,M,"Baton Rouge, LA  CFS Area "
+13140,48,48-13140,M,"Beaumont-Port Arthur, TX  CFS Area "
+16700,45,45-16700,M,"Charleston-North Charleston-Summerville, SC  CFS Area "
+25540,9,09-25540,M,"Hartford-West Hartford-East Hartford, CT  CFS Area "
+29340,22,22-29340,M,"Lake Charles, LA  CFS Area "
+29700,48,48-29700,M,"Laredo, TX   CFS Area "
+38060,4,04-38060,M,"Phoenix-Mesa-Glendale, AZ  CFS Area "
+40060,51,51-40060,M,"Richmond, VA  CFS Area "
+41700,48,48-41700,M,"San Antonio-New Braunfels, TX  CFS Area "
+41740,6,06-41740,M,"San Diego-Carlsbad-San Marcos, CA  CFS Area "
+45300,12,12-45300,M,"Tampa-St. Petersburg-Clearwater, FL  CFS Area "
+46520,15,15-46520,M,"Urban Honolulu, HI  CFS Area "
+47900,11,11-47900,M,"Washington-Arlington-Alexandria, DC-VA-MD-WV  CFS Area (DC Part)"
+47900,24,24-47900,M,"Washington-Arlington-Alexandria, DC-VA-MD-WV  CFS Area (MD Part)"
+47900,51,51-47900,M,"Washington-Arlington-Alexandria, DC-VA-MD-WV  CFS Area (VA Part)"
+99999,1,01-99999,R,Remainder of Alabama CFS Area
+99999,2,02-99999,R,Remainder of Alaska CFS Area
+99999,4,04-99999,R,Remainder of Arizona CFS Area
+99999,5,05-99999,R,Remainder of Arkansas CFS Area
+99999,6,06-99999,R,Remainder of California CFS Area
+99999,8,08-99999,R,Remainder of Colorado CFS Area
+99999,9,09-99999,R,Remainder of Connecticut CFS Area
+99999,10,10-99999,R,Remainder of Delaware CFS Area
+99999,12,12-99999,R,Remainder of Florida CFS Area
+99999,13,13-99999,R,Remainder of Georgia CFS Area
+99999,15,15-99999,R,Remainder of Hawaii CFS Area
+99999,16,16-99999,R,Remainder of Idaho CFS Area
+99999,17,17-99999,R,Remainder of Illinois CFS Area
+99999,18,18-99999,R,Remainder of Indiana CFS Area
+99999,19,19-99999,R,Remainder of Iowa CFS Area
+99999,20,20-99999,R,Remainder of Kansas CFS Area
+99999,21,21-99999,R,Remainder of Kentucky CFS Area
+99999,22,22-99999,R,Remainder of Louisiana CFS Area
+99999,23,23-99999,R,Remainder of Maine CFS Area
+99999,24,24-99999,R,Remainder of Maryland CFS Area
+99999,25,25-99999,R,Remainder of Massachusetts CFS Area
+99999,26,26-99999,R,Remainder of Michigan CFS Area
+99999,27,27-99999,R,Remainder of Minnesota CFS Area
+99999,28,28-99999,R,Remainder of Mississippi CFS Area
+99999,29,29-99999,R,Remainder of Missouri CFS Area
+99999,30,30-99999,R,Remainder of Montana CFS Area
+99999,31,31-99999,R,Remainder of Nebraska CFS Area
+99999,32,32-99999,R,Remainder of Nevada CFS Area
+99999,33,33-99999,R,Remainder of New Hampshire CFS Area
+99999,35,35-99999,R,Remainder of New Mexico CFS Area
+99999,36,36-99999,R,Remainder of New York CFS Area
+99999,37,37-99999,R,Remainder of North Carolina CFS Area
+99999,38,38-99999,R,Remainder of North Dakota CFS Area
+99999,39,39-99999,R,Remainder of Ohio CFS Area
+99999,40,40-99999,R,Remainder of Oklahoma CFS Area
+99999,41,41-99999,R,Remainder of Oregon CFS Area
+99999,42,42-99999,R,Remainder of Pennsylvania CFS Area
+99999,45,45-99999,R,Remainder of South Carolina CFS Area
+99999,46,46-99999,R,Remainder of South Dakota CFS Area
+99999,47,47-99999,R,Remainder of Tennessee CFS Area
+99999,48,48-99999,R,Remainder of Texas CFS Area
+99999,49,49-99999,R,Remainder of Utah CFS Area
+99999,50,50-99999,R,Remainder of Vermont CFS Area
+99999,51,51-99999,R,Remainder of Virginia CFS Area
+99999,53,53-99999,R,Remainder of Washington CFS Area
+99999,54,54-99999,R,Remainder of West Virginia CFS Area
+99999,55,55-99999,R,Remainder of Wisconsin CFS Area
+99999,56,56-99999,R,Remainder of Wyoming CFS Area
+0,NN,NN-00000,R,Origin metro area suppressed (where NN is a valid ORIG_STATE code)
+0,0,00-00000,R,Origin state and metro area suppressed
