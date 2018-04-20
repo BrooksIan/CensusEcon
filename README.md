@@ -3,7 +3,9 @@
 #### Report Building
 
 **Level**: Easy
+
 **Language**: Scala
+
 **Requirements**: 
 - [HDP 2.6.X]
 - Spark 2.x
