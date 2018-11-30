@@ -3,7 +3,6 @@
 #### Report Building
 
 **Level**: Easy
-
 **Language**: Scala
 
 **Requirements**: 
@@ -12,6 +11,56 @@
 
 **Author**: Ian Brooks
 **Follow** [LinkedIn - Ian Brooks PhD] (https://www.linkedin.com/in/ianrbrooksphd/)
+
+![Census](https://yt3.ggpht.com/a-/AN66SAwtUzDFUsvm7MJszIS3ccgglaFGrw1_Ye16ew=s900-mo-c-c0xffffffff-rj-k-no "Census")
+
+
+## File Description
+
+The PUM file includes 20 variables for all usable shipment records collected by the CFS – a total of 4,547,661 shipments from approximately 60,000 responding establishments.  The information included on each shipment record is:
+*	Shipment Origin
+    *	State 
+    *	Metropolitan Area
+*	Shipment Destination (in US)
+    *	State
+    *	Metropolitan Area
+*	NAICS industry classification of the shipper
+*	Quarter in 2012 in which the shipment was made
+*	Type of commodity 
+*	Mode of transportation
+*	The value of the shipment (dollars)
+*	The weight of the shipment (pounds)
+*	The great circle distance between the shipment origin and US destination (in miles)
+*	The routed distance between the shipment origin and US destination (in miles) 
+*	Whether or not the shipment required temperature control during transportation
+*	Whether or not the shipment was an export
+*	If an export, the final export destination country
+*	Hazardous material code
+*	Shipment tabulation weighting factor 
+
+##Column Descriptions 
+
+SHIPMT_ID   Shipment identifier	
+ORIG_STATE	FIPS state code of shipment origin	
+ORIG_MA	Metro area of shipment origin	
+ORIG_CFS_AREA	CFS Area of shipment origin	Concatenation of ORIG_STATE and ORIG_MA (ex: 24-12580)
+DEST_STATE	FIPS state code of shipment destination	01-56
+DEST_MA	Metro area of shipment destination	See Note (1)
+DEST_CFS_AREA	CFS Area of shipment destination	Concatenation of DEST_STATE and DEST_MA (ex: 01-142)
+NAICS	Industry classification of shipper	See Note (2)
+QUARTER	Quarter of 2012 in which the shipment occurred	1, 2, 3, 4
+SCTG	2-digit SCTG commodity code of the shipment	See Note (3)
+MODE	Mode of transportation of the shipment	See Note (4)
+SHIPMT_VALUE	Value of the shipment in dollars	0 - 999,999,999
+SHIPMT_WGHT	Weight of the shipment in pounds	0 - 999,999,999
+SHIPMT_DIST_GC	Great circle distance between ship-ment origin and destination (in miles)	0 - 99,999
+SHIPMT_DIST_ROUTED	Routed distance between shipment origin and destination (in miles)	0 - 99,999
+TEMP_CNTL_YN	Temperature controlled shipment - Yes or No	Y, N
+EXPORT_YN	Export shipment - Yes or No	Y, N
+EXPORT_CNTRY	Export final destination	C = Canada, M = Mexico, O = Other country
+N = Not an export
+HAZMAT	Hazardous material (HAZMAT) code	P = Class 3.0 Hazmat (flammable liquids), H = Other Hazmat, N = Not Hazmat
+WGT_FACTOR	Shipment tabulation weighting factor.  (This factor is also an estimate of the total number of shipments represent-ted by the PUM file shipment.)	0 – 975,000.0
 
 ## Pre-Run Instructions
 
