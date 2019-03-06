@@ -60,88 +60,111 @@ val mergedatasets = spark.sqlContext.sql("select A.shipmt_id, A.orig_state, H.st
 // Table B1 - Shipments by Mode of Transportation
 
 val B1ShipModeTran = spark.sqlContext.sql("select mode, count(shipmt_id) as count, format_number( sum(shipmt_value*wgt_factor), 0) as TotalValue, format_number( sum( wgt_factor*(shipmt_wght/2000)), 0) as TotalTonnage, format_number( (sum( wgt_factor * shipmt_dist_routed)) / sum(wgt_factor), 0) as AvgerageMilesPerShip from CensusEcon group by mode order by mode")
+B1ShipModeTran.show()
 
 // Table B1 - Transportation Mode Count
 
 val B1TranModeCount = spark.sqlContext.sql("select F.description as ModeDesc, count(A.shipmt_id) as count, format_number( sum(A.shipmt_value*A.wgt_factor), 0) as TotalValue, format_number( sum( A.wgt_factor*(A.shipmt_wght/2000)), 0) as TotalTonnage, format_number( (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor), 0) as AvgerageMilesPerShip from CensusEcon as A, censusecon_mot as F where  A.mode = F.modecode group by  F.description  order by F.description")
+B1TranModeCount.show()
 
 // Table B1 - Transportation Mode by Tonnage
 
 val B1TranModeTonnage = spark.sqlContext.sql("select F.description as ModeDesc, format_number( sum(A.shipmt_value*A.wgt_factor), 0) as TotalValue,  sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, format_number( (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor), 0) as AvgerageMilesPerShip from CensusEcon as A, censusecon_mot as F where  A.mode = F.modecode group by  F.description order by F.description")
+B1TranModeTonnage.show()
 
 // Table B1 - Average Miles Per Shipment by Mode of Transportation
 
 val B1AvgMilePerShip = spark.sqlContext.sql("select F.description as ModeDesc, count(A.shipmt_id) as count, format_number( sum(A.shipmt_value*A.wgt_factor), 0) as TotalValue, format_number( sum( A.wgt_factor*(A.shipmt_wght/2000)), 0) as TotalTonnage, format_number( (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor), 0) as AvgerageMilesPerShip from CensusEcon as A, censusecon_mot as F where  A.mode = F.modecode group by  F.description  order by F.description")
+B1AvgMilePerShip.show()
 
 // Table B1 - Transportation Mode by Shipment Value
 
 val B1TranModeByShipValue = spark.sqlContext.sql("select F.description as ModeDesc, sum(A.shipmt_value*A.wgt_factor) as TotalValue,  sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, format_number( (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor), 0) as AvgerageMilesPerShip from CensusEcon as A, censusecon_mot as F where  A.mode = F.modecode group by  F.description order by F.description")
+B1TranModeByShipValue.show()
 
 // Table B2 - Shipments by Classification of Goods
 
 val B2ShipByClass = spark.sqlContext.sql("select sctg, count(shipmt_id) as count, format_number( sum(shipmt_value*wgt_factor), 0) as TotalValue, format_number(sum( wgt_factor*(shipmt_wght/2000)),0) as TotalTonnage, format_number((sum( wgt_factor * shipmt_dist_routed)) / sum(wgt_factor),0) as AvgerageMilesPerShip from CensusEcon as A group by sctg order by sctg")
+B2ShipByClass.show()
 
 // Table B2 - Shipments by Classification of Goods by Count
 
 val B2ShipByClassCount = spark.sqlContext.sql("select E.description as SCTGDesc, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from CensusEcon as A, censusecon_sctg as E where A.sctg = E.sctg group by E.description order by count")
+B2ShipByClassCount.show()
 
 // Table B2 - Shipments by Classification of Goods by Value
 
 val B2ShipByClassValue = spark.sqlContext.sql("select E.description as SCTGDesc, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from CensusEcon as A, censusecon_sctg as E where A.sctg = E.sctg group by E.description order by TotalValue")
+B2ShipByClassValue.show()
 
 // Table B2 - Shipments by Classification of Goods by Tonnage
 
 val B2ShipByClassTonnage = spark.sqlContext.sql("select E.description as SCTGDesc, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from CensusEcon as A, censusecon_sctg as E where A.sctg = E.sctg group by E.description order by totaltonnage")
+B2ShipByClassTonnage.show()
 
 // Table B2- Shipments by Classification of Goods by Average Miles Per Shipment
 
 val B2ShipByClassAvgMilePerShip = spark.sqlContext.sql("select E.description as SCTGDesc, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum( A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from CensusEcon as A, censusecon_sctg as E where A.sctg = E.sctg group by E.description order by E.description")
+B2ShipByClassAvgMilePerShip.show()
 
 // Table B3
 
 val B3Base = spark.sqlContext.sql("select orig_state, count(shipmt_id) as count, format_number(sum(shipmt_value*wgt_factor),0) as TotalValue, format_number(sum( wgt_factor*(shipmt_wght/2000)),0) as TotalTonnage, format_number((sum( wgt_factor * shipmt_dist_routed)) / sum(wgt_factor),0) as AvgerageMilesPerShip from CensusEcon group by orig_state order by orig_state")
+B3Base.show()
 
 // Table B3 - Shipment Count by State of Origin
 
 val B3ShipCountStateOrigin = spark.sqlContext.sql("select B.state, A.orig_state, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum(A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum(A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from censusecon as A, censusecon_statecodes as B where A.orig_state = B.code group by orig_state, B.state order by count(A.shipmt_id)")
+B3ShipCountStateOrigin.show()
 
 // Table B3 - Shipment Value by State of Origin
 
 val B3ShipValueStateOrigin = spark.sqlContext.sql("select B.state, A.orig_state, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum(A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from censusecon as A, censusecon_statecodes as B where A.orig_state = B.code group by orig_state, B.state order by TotalValue")
+B3ShipValueStateOrigin.show()
 
 // Table B3 - Shipment Count By State of Destination
 val B3ShipCountStateDest = spark.sqlContext.sql("select B.state, A.dest_state, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum(A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum(A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from censusecon as A, censusecon_statecodes as B where A.dest_state = B.code group by dest_state, B.state order by count(A.shipmt_id)")
+B3ShipCountStateDest.show()
 
 // Table B3 - Shipment Value by State of Destination
 
 val B3ShipValueStateDest = spark.sqlContext.sql("select B.state, A.dest_state, count(A.shipmt_id) as count, sum(A.shipmt_value*A.wgt_factor) as TotalValue, sum( A.wgt_factor*(A.shipmt_wght/2000)) as TotalTonnage, (sum(A.wgt_factor * A.shipmt_dist_routed)) / sum(A.wgt_factor) as AvgerageMilesPerShip from censusecon as A, censusecon_statecodes as B where A.dest_state = B.code group by dest_state, B.state order by TotalValue")
+B3ShipValueStateDest.show()
 
 // Table C1 - Variance by Mode
 val C1VarianceByMode = spark.sqlContext.sql(" select mode, format_number(exp( 3.844 + 0.039 * log(2.71828, count(shipmt_id) ) - 0.020 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as Value, format_number(exp( 3.761 + 0.076 * log(2.71828, count(shipmt_id) ) - 0.019 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as WGHT, format_number(exp( 4.092 - 0.015 * log(2.71828, count(shipmt_id) ) - 0.012 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as TonMiles, format_number(exp( 5.168 - 0.084 * log(2.71828, count(shipmt_id) ) - 0.376 * log(2.71828, sum(wgt_factor * shipmt_dist_routed) / sum(wgt_factor))), 2)  as AvgMilesShipped from CensusEcon group by mode order by mode")
+C1VarianceByMode.show()
 
 // Table C2 - Variance by SCTG
 
 val C1VarianceBySTCG = spark.sqlContext.sql("select sctg, format_number(exp( 3.844 + 0.039 * log(2.71828, count(shipmt_id) ) - 0.020 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as Value, format_number(exp( 3.761 + 0.076 * log(2.71828, count(shipmt_id) ) - 0.019 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as WGHT, format_number(exp( 4.092 - 0.015 * log(2.71828, count(shipmt_id) ) - 0.012 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as TonMiles, format_number(exp( 5.168 - 0.084 * log(2.71828, count(shipmt_id) ) - 0.376 * log(2.71828, sum(wgt_factor * shipmt_dist_routed) / sum(wgt_factor))), 2)  as AvgMilesShipped from CensusEcon group by sctg order by sctg")
+C1VarianceBySTCG.show()
 
 // Table C3 - Variance by Original State
 
 val C1VarianceByOriginalState = spark.sqlContext.sql("select orig_state, format_number(exp( 3.844 + 0.039 * log(2.71828, count(shipmt_id) ) - 0.020 * pow( log(2.71828,count(shipmt_id)), 2)), 2) as Value, format_number(exp( 3.761 + 0.076 * log(2.71828, count(shipmt_id) ) - 0.019 * pow( log(2.71828,count(shipmt_id)), 2 )), 2) as WGHT, format_number(exp( 4.092 - 0.015 * log(2.71828, count(shipmt_id) ) - 0.012 * pow( log(2.71828,count(shipmt_id)), 2 )), 2) as TonMiles, format_number(exp( 5.168 - 0.084 * log(2.71828, count(shipmt_id) ) - 0.376 * log(2.71828, sum(wgt_factor * shipmt_dist_routed) / sum(wgt_factor))), 2)  as AvgMilesShipped from CensusEcon group by orig_state order by orig_state")
+C1VarianceByOriginalState.show()
 
 // Shipments by Hazards
 val HazardsShips = spark.sqlContext.sql("select hazmat, count(hazmat) from CensusEcon group by hazmat order by count(hazmat)")
+HazardsShips.show()
 
 // Hazards / Non-Hazards Shipments by Quarter
 val HazardsShipsByQtr = spark.sqlContext.sql("select quarter, hazmat, count(quarter) from CensusEcon group by quarter, hazmat order by count(quarter)")
+HazardsShipsByQtr.show()
 
 // Hazmat Shipments By State of Origin
 val HazardsShipsByStateOrigin = spark.sqlContext.sql("select B.state, hazmat, count(hazmat) from CensusEcon as A, CensusEcon_Statecodes as B where A.orig_state = B.code and A.hazmat != 'N' group by B.state, A.hazmat order by count(hazmat)")
+HazardsShipsByStateOrigin.show()
 
 // Hazmat Shipments by State of Destination 
 val HazardsShipsByStateDest = spark.sqlContext.sql(" select B.state, hazmat, count(hazmat) from CensusEcon as A, CensusEcon_Statecodes as B where A.dest_state = B.code and A.hazmat != 'N' group by B.state, A.hazmat order by count(hazmat)")
+HazardsShipsByStateDest.show()
 
 // States of Origin Shipment Counts by International Destinations
 val HazardsShipsCountIntOrigin = spark.sqlContext.sql("select B.state, A.export_cntry, count(A.export_cntry) as count from censusecon as A, censusecon_statecodes as B where export_yn = 'Y' and A.orig_state = B.code group by B.state, A.export_cntry order by count")
+HazardsShipsCountIntOrigin.show()
 
 // Shipment Count by International Destination
 val HazardsShipsCountIntDest = spark.sqlContext.sql("select A.export_cntry, count(A.export_cntry) as count from censusecon as A where export_yn = 'Y' group by export_cntry order by count")
-
+HazardsShipsCountIntDest.show()
