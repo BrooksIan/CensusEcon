@@ -95,7 +95,7 @@ e. CFS_2012_table_StateCodes.csv
 
 ### For Cloudera Data Science Workbench
 1. Log into CDSW and upload the project
-2. Open a terminal on a session and run the loaddata.sh
+2. Open a terminal on a session and run the loaddata.sh script 
 
 ## License
 Unlike all other Apache projects which use Apache license, this project uses an advanced and modern license named The Star And Thank Author License (SATA). Please see the [LICENSE](LICENSE) file for more information.
