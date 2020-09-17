@@ -75,7 +75,7 @@ The PUM file includes 20 variables for all usable shipment records collected by 
 
 2. In Ambari, select "Files View" and upload all of the CSV files to the /tmp/ directory.  For assistance, please use the following [tutorial.](https://fr.hortonworks.com/tutorial/loading-and-querying-data-with-hadoop/)
 
-3. Upload the source data file  [CFS 2012 csv] (https://www.census.gov/econ/cfs/pums.html) to HDFS in the /tmp directory 
+3. Upload the source data file  [CFS 2012 csv] (https://www.census.gov/data/datasets/2012/econ/cfs/historical-datasets.html) to HDFS in the /tmp directory 
 
 4. Upload helper files to the HDFS in the /tmp directory 
 Upload all of the helper files to HDFS in the /tmp directory 
