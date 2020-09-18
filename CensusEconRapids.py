@@ -5,12 +5,22 @@ import cdsw
 import time
 import sys 
 
+# Check NVidia Rapids Jars
+!ls -l $SPARK_RAPIDS_DIR
+
+exampleDir = os.path.join(os.environ["SPARK_RAPIDS_DIR"])
+exampleJars = [os.path.join(exampleDir, x) for x in os.listdir(exampleDir)]
+
+print(exampleDir)
+print(exampleJars)
+
+
 # Initialize Spark Session 
 spark = SparkSession.builder \
       .appName("CenusEcon") \
       .master("k8s://https://172.20.0.1:443") \
       .config("spark.plugins","com.nvidia.spark.SQLPlugin") \
-      .config("spark.rapids.sql.format.csv.read.enabled", "true") \
+      .config("spark.rapids.sql.format.csv.read.enabled", "false") \
       .config("spark.rapids.sql.enabled", "false") \
       .config("spark.executor.resource.gpu.discoveryScript", "getGpusResources.sh") \
       .config("spark.executor.resource.gpu.vendor","nvidia") \
@@ -23,10 +33,11 @@ spark = SparkSession.builder \
       .config("spark.locality.wait","0s") \
       .config("spark.sql.files.maxPartitionBytes","1024m") \
       .config("spark.sql.shuffle.partitions","10") \
+      .config("spark.jars", ",".join(exampleJars))\
       .getOrCreate()
 
       
-      
+## Spark + Rapids on K8s      
 #      --master "k8s://https://172.20.0.1:443" \
 #     --conf spark.rapids.sql.concurrentGpuTasks=1 \
 #     --driver-memory 2G \
@@ -64,8 +75,8 @@ startTime = time.process_time()
 #Load Helper Files and Build Tables
 
 #CFS Area
-df_Table_CFSArea = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("CFS_2012_table_CFSArea.csv")
-
+df_Table_CFSArea = spark.read.format("csv").option("header", "true").load("CFS_2012_table_CFSArea.csv")
+#option("inferSchema", "true").
 #df_Table_CFSArea = spark.read.load("CFS_2012_table_CFSArea.csv", format="csv", sep=",", inferSchema="true", header="true")
 
 
