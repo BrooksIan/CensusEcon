@@ -8,11 +8,13 @@ import sys
 # Check NVidia Rapids Jars
 !ls -l $SPARK_RAPIDS_DIR
 
-exampleDir = os.path.join(os.environ["SPARK_RAPIDS_DIR"])
-exampleJars = [os.path.join(exampleDir, x) for x in os.listdir(exampleDir)]
+RapidJarDir = os.path.join(os.environ["SPARK_RAPIDS_DIR"])
+RapidJars = [os.path.join(RapidJarDir, x) for x in os.listdir(RapidJarDir)]
+RapidgetGPURespource = os.environ["SPARK_RAPIDS_DIR"] + "/getGpusResources.sh" 
 
-print(exampleDir)
-print(exampleJars)
+print(RapidJarDir)
+print(RapidJars)
+print(RapidgetGPURespource)
 
 
 # Initialize Spark Session 
@@ -22,18 +24,19 @@ spark = SparkSession.builder \
       .config("spark.plugins","com.nvidia.spark.SQLPlugin") \
       .config("spark.rapids.sql.format.csv.read.enabled", "false") \
       .config("spark.rapids.sql.enabled", "false") \
-      .config("spark.executor.resource.gpu.discoveryScript", "getGpusResources.sh") \
+      .config("spark.executor.resource.gpu.discoveryScript", RapidgetGPURespource) \
       .config("spark.executor.resource.gpu.vendor","nvidia") \
       .config("spark.task.resource.gpu.amount",".25") \
       .config("spark.executor.cores","4") \
       .config("spark.executor.resource.gpu.amount","1") \
-      .config("spark.executor.memory","4G") \
+      .config("spark.executor.memory","1G") \
       .config("spark.task.cpus","1") \
-      .config("spark.rapids.memory.pinnedPool.size","2G") \
+      .config("spark.rapids.memory.pinnedPool.size","1G") \
       .config("spark.locality.wait","0s") \
-      .config("spark.sql.files.maxPartitionBytes","1024m") \
+      .config("spark.sql.files.maxPartitionBytes","256m") \
       .config("spark.sql.shuffle.partitions","10") \
-      .config("spark.jars", ",".join(exampleJars))\
+      .config("spark.jars", ",".join(RapidJars))\
+      .config("spark.files", RapidgetGPURespource)\
       .getOrCreate()
 
       
@@ -53,6 +56,10 @@ spark = SparkSession.builder \
 #     --conf spark.executor.resource.gpu.discoveryScript=/opt/sparkRapidsPlugin/getGpusResources.sh \
 #     --conf spark.executor.resource.gpu.vendor=nvidia.com \
 #     --conf spark.kubernetes.container.image=$IMAGE_NAME
+#
+#     --files ${SPARK_RAPIDS_DIR}/getGpusResources.sh \
+#     --jars  ${SPARK_CUDF_JAR},${SPARK_RAPIDS_PLUGIN_JAR}
+#
       
       
 spark.version
