@@ -16,77 +16,51 @@ print(RapidJarDir)
 print(RapidJars)
 print(RapidgetGPURespource)
 
-
-# Initialize Spark Session 
+## Spark + Rapids on K8s     
+# Initialize Rapids Spark Session 
 spark = SparkSession.builder \
-      .appName("CenusEcon") \
-      .master("k8s://https://172.20.0.1:443") \
-      .config("spark.plugins","com.nvidia.spark.SQLPlugin") \
-      .config("spark.rapids.sql.format.csv.read.enabled", "false") \
-      .config("spark.rapids.sql.enabled", "false") \
-      .config("spark.executor.resource.gpu.discoveryScript", RapidgetGPURespource) \
-      .config("spark.executor.resource.gpu.vendor","nvidia") \
-      .config("spark.task.resource.gpu.amount",".25") \
-      .config("spark.executor.cores","4") \
-      .config("spark.executor.resource.gpu.amount","1") \
-      .config("spark.executor.memory","1G") \
-      .config("spark.task.cpus","1") \
-      .config("spark.rapids.memory.pinnedPool.size","1G") \
-      .config("spark.locality.wait","0s") \
-      .config("spark.sql.files.maxPartitionBytes","256m") \
-      .config("spark.sql.shuffle.partitions","10") \
-      .config("spark.jars", ",".join(RapidJars))\
+      .appName("CenusEconRapids") \
+      .config("spark.jars", ",".join(RapidJars)) \
       .config("spark.files", RapidgetGPURespource)\
       .getOrCreate()
 
-      
-## Spark + Rapids on K8s      
-#      --master "k8s://https://172.20.0.1:443" \
-#     --conf spark.rapids.sql.concurrentGpuTasks=1 \
-#     --driver-memory 2G \
-#     --conf spark.executor.memory=4G \
-#     --conf spark.executor.cores=4 \
-#     --conf spark.task.cpus=1 \
-#     --conf spark.task.resource.gpu.amount=0.25 \
-#     --conf spark.rapids.memory.pinnedPool.size=2G \
-#     --conf spark.locality.wait=0s \
-#     --conf spark.sql.files.maxPartitionBytes=512m \
-#     --conf spark.sql.shuffle.partitions=10 \
-#     --conf spark.plugins=com.nvidia.spark.SQLPlugin \
-#     --conf spark.executor.resource.gpu.discoveryScript=/opt/sparkRapidsPlugin/getGpusResources.sh \
-#     --conf spark.executor.resource.gpu.vendor=nvidia.com \
-#     --conf spark.kubernetes.container.image=$IMAGE_NAME
-#
-#     --files ${SPARK_RAPIDS_DIR}/getGpusResources.sh \
-#     --jars  ${SPARK_CUDF_JAR},${SPARK_RAPIDS_PLUGIN_JAR}
-#
-      
-      
+## Spark + Rapids Tuning Options      
+#      .config("spark.plugins","com.nvidia.spark.SQLPlugin") \
+#      .config("spark.rapids.sql.format.csv.read.enabled", "false") \
+#      .config("spark.rapids.sql.enabled", "false") \
+#      .config("spark.executor.resource.gpu.discoveryScript", RapidgetGPURespource) \
+#      .config("spark.executor.resource.gpu.vendor","nvidia.com") \
+#      .config("spark.task.resource.gpu.amount",".25") \
+#      .config("spark.executor.cores","4") \
+#      .config("spark.executor.memoryOverhead","4G") \
+#      .config("spark.executor.resource.gpu.amount","1") \
+#      .config("spark.executor.memory","2G") \
+#      .config("spark.task.cpus","1") \
+#      .config("spark.rapids.memory.pinnedPool.size","2G") \
+#      .config("spark.locality.wait","0s") \
+#      .config("spark.sql.files.maxPartitionBytes","512m") \
+#      .config("spark.sql.shuffle.partitions","10") \
+    
+## Spark Version    
 spark.version
 
 ### Start Timer
 startTime = time.process_time()
 
+# Load Data Files
+# Create a data frame from CSV File 
+df_WholeSetRaw = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("cfs_2012_pumf_csv.txt")
 
-#Load Data Files
-#Create a data frame from CSV File 
-#df_WholeSetRaw = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("cfs_2012_pumf_csv.txt")
+# Create Table from DataFrame
+df_WholeSetRaw.createOrReplaceTempView("CensusECON")
 
-#Create Table from DataFrame
-#df_WholeSetRaw.createOrReplaceTempView("CensusECON")
-
-#Display resulting Infered schema 
-#df_WholeSetRaw.printSchema()
-
+# Display resulting Infered schema 
+df_WholeSetRaw.printSchema()
 
 #Load Helper Files and Build Tables
 
 #CFS Area
-df_Table_CFSArea = spark.read.format("csv").option("header", "true").load("CFS_2012_table_CFSArea.csv")
-#option("inferSchema", "true").
-#df_Table_CFSArea = spark.read.load("CFS_2012_table_CFSArea.csv", format="csv", sep=",", inferSchema="true", header="true")
-
-
+df_Table_CFSArea = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("CFS_2012_table_CFSArea.csv")
 
 #Mode of Transportation 
 df_Table_ModeofTrans = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("CFS_2012_table_ModeofTrans.csv")
