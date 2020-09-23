@@ -20,6 +20,21 @@ print(RapidgetGPURespource)
 # Initialize Rapids Spark Session 
 spark = SparkSession.builder \
       .appName("CenusEconRapids") \
+      .config("spark.plugins","com.nvidia.spark.SQLPlugin") \
+      .config("spark.rapids.sql.format.csv.read.enabled", "false") \
+      .config("spark.rapids.sql.enabled", "false") \
+      .config("spark.executor.resource.gpu.discoveryScript", RapidgetGPURespource) \
+      .config("spark.executor.resource.gpu.vendor","nvidia.com") \
+      .config("spark.task.resource.gpu.amount",".25") \
+      .config("spark.executor.cores","4") \
+      .config("spark.executor.memoryOverhead","4G") \
+      .config("spark.executor.resource.gpu.amount","1") \
+      .config("spark.executor.memory","2G") \
+      .config("spark.task.cpus","1") \
+      .config("spark.rapids.memory.pinnedPool.size","2G") \
+      .config("spark.locality.wait","0s") \
+      .config("spark.sql.files.maxPartitionBytes","512m") \
+      .config("spark.sql.shuffle.partitions","10") \
       .config("spark.jars", ",".join(RapidJars)) \
       .config("spark.files", RapidgetGPURespource)\
       .getOrCreate()
